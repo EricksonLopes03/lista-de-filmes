@@ -1,22 +1,12 @@
 <?php 
 
-switch ($_SERVER['PATH_INFO']) {
+    require __DIR__ . '/../vendor/autoload.php';
 
-    case '/cadastro':
-        include __DIR__ . '/../app/View/cadastro.php';
-        break;
+    use App\Routes;
+ 
+    $objRota = new Routes();
+    $objRota->getRota($_SERVER['PATH_INFO']);
 
-
-    case '/principal':
-        include __DIR__ . '/../app/View/principal.php';
-        break;
-
-    
-    
-    default:
-        # code...
-        break;
-}
-    
+        
     
     

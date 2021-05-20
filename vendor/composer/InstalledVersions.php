@@ -25,24 +25,24 @@ class InstalledVersions
 private static $installed = array (
   'root' => 
   array (
-    'pretty_version' => '1.0.0+no-version-set',
-    'version' => '1.0.0.0',
+    'pretty_version' => 'dev-master',
+    'version' => 'dev-master',
     'aliases' => 
     array (
     ),
-    'reference' => NULL,
+    'reference' => 'd9c5d3ceb3f9f566a4539f5ab617a4213b855d0f',
     'name' => 'pce/lista-de-tarefas',
   ),
   'versions' => 
   array (
     'pce/lista-de-tarefas' => 
     array (
-      'pretty_version' => '1.0.0+no-version-set',
-      'version' => '1.0.0.0',
+      'pretty_version' => 'dev-master',
+      'version' => 'dev-master',
       'aliases' => 
       array (
       ),
-      'reference' => NULL,
+      'reference' => 'd9c5d3ceb3f9f566a4539f5ab617a4213b855d0f',
     ),
   ),
 );

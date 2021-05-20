@@ -3,7 +3,7 @@
     "description": "Projeto de Conclusão de estudos da web.art",
     "autoload": {
         "psr-4": {
-            "App\\": "app"
+            "App\\": "app/"
         }
     }
     
