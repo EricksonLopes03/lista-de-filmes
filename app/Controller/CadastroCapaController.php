@@ -3,9 +3,10 @@
     namespace App\Controller;
 
     use App\Persistence\FilmePersistence;
-    use App\Model\Filme;
+    
 
-    class CadastroController implements InterfaceController{
+    class CadastroCapaController implements InterfaceController{
+
 
         public function __construct(){
             
@@ -15,20 +16,14 @@
          * Método responsável por exibir a view da rota solicitada
          */
         public function processaRota(){
-            if(!isset($_GET['acao'])){
-                require __DIR__ . '/../View/cadastro.php';
-            }else{
+                require __DIR__ . '/../View/cadastro-capa.php';
                 $filmePersistence = new FilmePersistence();
                 switch ($_GET['acao']) {
                     case 'salvar':
-                        $filme = new Filme();
-                        if(!$filme->validarDados()){
-                            require __DIR__ . '/../View/cadastro.php';
-                        }
-                        $id = $filmePersistence->salvar($filme);
-                        session_start();                       
-                        $_SESSION['id'] = $id;
-                        header('Location: cadastro-capa?id='. $id);
+                        session_start();
+                        print_r($_SESSION['id']);
+                        $nomeImagem = $this->salvarImagem($_FILES['capa']);
+                        $filmePersistence->salvarImagem($_SESSION['id'] , $nomeImagem);
                         break;
                     case 'atualizar':
                         print_r($_POST);
@@ -41,12 +36,20 @@
                         break;
                     
                     default:
-                        # code...
+
                         break;
                 }
-
-            }
+            
         }
+
+        public function salvarImagem($dadosImagem){
+            $nomeImagem = $dadosImagem['name']; 
+            move_uploaded_file($dadosImagem['tmp_name'], __DIR__ . '/../../public/img/' . $nomeImagem);
+            return $nomeImagem;
+        }
+
+
+
     }
 
     

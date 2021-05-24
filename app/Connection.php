@@ -1,6 +1,4 @@
 <?php
-
-    require __DIR__ . '/../../vendor/autoload.php';
     namespace App;
 
     class Connection {

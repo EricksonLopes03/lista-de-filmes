@@ -50,4 +50,25 @@
             $this->$name = $value;
         }
 
+        public function validarDados(){
+            $filtros = [
+                'titulo' => FILTER_SANITIZE_STRIPPED,
+                'descricao' => FILTER_SANITIZE_STRIPPED,
+                'genero' => FILTER_SANITIZE_STRIPPED,
+                'ano' => FILTER_VALIDATE_INT
+            ];
+
+            $dadosFiltrados = filter_input_array(INPUT_POST, $filtros);
+            if($dadosFiltrados['titulo'] == ''){
+                return false;
+            }
+
+            $this->__set('titulo', $dadosFiltrados['titulo']);
+            $this->__set('descricao', $dadosFiltrados['descricao']);
+            $this->__set('genero', $dadosFiltrados['genero']);
+            $this->__set('ano', $dadosFiltrados['ano']);
+            return true;
+
+        }
+
     }

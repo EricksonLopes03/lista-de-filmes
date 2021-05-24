@@ -10,8 +10,12 @@
              * Variável para conter uma conexão com o banco de dados
              * @var Connection
              */
-            protected Connection $conn = $this->conn->getConexao();
-            
+            protected \PDO $conn;
+
+            public function __construct(){
+                $this->conn = Connection::getConexao();
+            }
+           
 
             /**
              * Método responsável por padronizar cadastro de dados no banco

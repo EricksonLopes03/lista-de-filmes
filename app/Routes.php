@@ -3,6 +3,7 @@
     namespace App;
     use App\Controller\CadastroController;
     use App\Controller\PrincipalController;
+    use App\Controller\CadastroCapaController;
 
     class Routes{
         
@@ -15,7 +16,8 @@
         public function __construct(){
             $this->rotas = [
                 '/principal' => PrincipalController::class,
-                '/cadastro' => CadastroController::class
+                '/cadastro' => CadastroController::class,
+                '/cadastro-capa' => CadastroCapaController::class
             ];
         }
 
