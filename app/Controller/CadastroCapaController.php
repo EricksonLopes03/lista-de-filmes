@@ -19,9 +19,9 @@
                 require __DIR__ . '/../View/cadastro-capa.php';
                 $filmePersistence = new FilmePersistence();
                 switch ($_GET['acao']) {
+                    //SALVA OU ATUALIZA UMA IMAGEM
                     case 'salvar':
                         session_start();
-                        print_r($_SESSION['id']);
                         $nomeImagem = $this->salvarImagem($_FILES['capa']);
                         $filmePersistence->salvarImagem($_SESSION['id'] , $nomeImagem);
                         break;

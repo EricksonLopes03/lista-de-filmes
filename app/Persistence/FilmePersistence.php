@@ -27,7 +27,6 @@
             $stmt->bindValue(':capa', $nomeImagem);
             $stmt->bindValue(':id', $id);
             $stmt->execute();
-            echo 'feito';
 
         }
 
@@ -38,6 +37,18 @@
          * @param mixed $filme
          */
         public function atualizar($id, $filme){
+            echo '<pre>';
+            print_r($filme);
+            print_r($id);
+            echo '</pre>';
+            $query = 'update filme set titulo = :titulo, descricao = :descricao, genero = :genero, ano = :ano where id = :id';
+            $stmt = $this->conn->prepare($query);
+            $stmt->bindValue(':titulo', $filme->__get('titulo'));
+            $stmt->bindValue(':descricao', $filme->__get('descricao'));
+            $stmt->bindValue(':genero', $filme->__get('genero'));
+            $stmt->bindValue(':ano', $filme->__get('ano'));
+            $stmt->bindValue(':id', $id);
+            $stmt->execute();
 
         }
 
@@ -59,6 +70,10 @@
          * @param mixed $id
          */
         public function excluir($id){
+            $query = 'delete from filme where id = :id';
+            $stmt = $this->conn->prepare($query);
+            $stmt->bindValue(':id', $id);
+            $stmt->execute();
 
         }
     }

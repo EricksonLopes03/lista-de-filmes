@@ -15,7 +15,8 @@
          * Método responsável por exibir a view da rota solicitada
          */
         public function processaRota(){
-
+            $filmePersistence = new FilmePersistence();
+            $filmes = $filmePersistence->listar();
             require __DIR__ . '/../View/principal.php';
         }
 

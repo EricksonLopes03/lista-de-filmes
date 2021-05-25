@@ -1,3 +1,8 @@
+<script type="text/javascript">
+    window.$_GET = new URLSearchParams(location.search)
+   
+
+</script>
 <?php include __DIR__ . '/layout/header.php'; ?>
 
 <div class="row d-flex justify-content-end my-5">
@@ -6,7 +11,7 @@
 </div>
 
 <h3>Cadastro dos dados</h3>
-<form action="/cadastro?acao=salvar" method="post">
+<form action="/cadastro?acao=salvar&id=<?= $_GET['id'] ?>" method="post">
 
     <div class="form-group my-5 p-3 lista-filmes">
 
@@ -21,7 +26,13 @@
             <select name="genero" id="genero">
                 <option value="0">Selecione um gênero</option>
                 <option value="Terror">Terror</option>
-                <option value="Ação">Ação</option>
+                <option value="Ação e aventura">Ação e aventura</option>
+                <option value="Suspense">Suspense</option>
+                <option value="Ficção Científica">Ficção Científica</option>
+                <option value="Romance">Romance</option>
+                <option value="Comédia">Comédia</option>
+                <option value="Policial">Policial</option>
+                <option value="Drama">Drama</option>
             </select>
         </div>
 
