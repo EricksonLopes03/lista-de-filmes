@@ -56,7 +56,7 @@
                         if(isset($_GET['id'])){
                             $filmePersistence->excluir($_GET['id']);
                         }
-                        header('Location: principal');
+                        header('Location: principal?retorno=excluido');
                         break;
                     
                     default:
