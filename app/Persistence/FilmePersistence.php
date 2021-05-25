@@ -6,8 +6,9 @@
 
 
         /**
-         * Método responsável por cadastrar um objeto do tipo Filme no banco
-         * @param mixed $filme
+         * Método responsável por cadastrar um novo Filme no banco
+         * @param Object Filme     $filme - dados do filme a ser cadastrado
+         * @return int             
          */
         public function salvar($filme){
             $query = 'insert into filme (id, titulo, descricao, genero, ano) values (default, :titulo, :descricao, :genero, :ano)';
@@ -21,6 +22,11 @@
 
         }
 
+        /**
+         * Método responsável por salvar ou atualizar o nome de uma imagem no banco
+         * @param int          $id - identificador do filme que vai ser associado à imagem
+         * @param String       $nomeImagem - nome da imagem a ser salva no banco de dados
+         */
         public function salvarImagem($id, $nomeImagem){
             $query = 'update filme set nome_imagem_capa = :capa where id = :id';
             $stmt = $this->conn->prepare($query);
@@ -33,14 +39,10 @@
 
         /**
          * Método responsável por atualizar os dados um objeto do tipo Filme no banco
-         * @param mixed $id
-         * @param mixed $filme
+         * @param int                    $id - identificador do filme escolhido para ser atualizado
+         * @param Object Filme           $filme - dados do filme escolhido para ser atualizado
          */
         public function atualizar($id, $filme){
-            echo '<pre>';
-            print_r($filme);
-            print_r($id);
-            echo '</pre>';
             $query = 'update filme set titulo = :titulo, descricao = :descricao, genero = :genero, ano = :ano where id = :id';
             $stmt = $this->conn->prepare($query);
             $stmt->bindValue(':titulo', $filme->__get('titulo'));
@@ -67,7 +69,7 @@
 
         /**
          * Método responsável por excluir um objeto do tipo Filme no banco
-         * @param mixed $id
+         * @param int       $id - identificador da imagem escolhida para ser excluída
          */
         public function excluir($id){
             $query = 'delete from filme where id = :id';

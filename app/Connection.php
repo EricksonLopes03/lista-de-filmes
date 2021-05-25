@@ -3,6 +3,11 @@
 
     class Connection {
 
+        /**
+         * Método estático responsável por criar e retornar uma conexão com o banco
+         * de dados utilizando PDO
+         * @return PDO    $conn
+         */
         public static function getConexao() {
             try {
 

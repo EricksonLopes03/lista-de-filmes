@@ -23,16 +23,7 @@
                     case 'salvar':
                         session_start();
                         $nomeImagem = $this->salvarImagem($_FILES['capa']);
-                        $filmePersistence->salvarImagem($_SESSION['id'] , $nomeImagem);
-                        break;
-                    case 'atualizar':
-                        print_r($_POST);
-                        break;
-                    case 'listar':
-                        print_r($_POST);
-                        break;
-                    case 'excluir':
-                        print_r($_POST);
+                        $filmePersistence->salvarImagem($_SESSION['id'], $nomeImagem);
                         break;
                     
                     default:
@@ -42,6 +33,11 @@
             
         }
 
+        /**
+         * Método responsável por salvar / atualizar o nome de uma imagem no banco
+         * @param  Array      $dadosImagem - dados da imagem recebida via $_POST
+         * @return String
+         */
         public function salvarImagem($dadosImagem){
             $nomeImagem = $dadosImagem['name']; 
             move_uploaded_file($dadosImagem['tmp_name'], __DIR__ . '/../../public/img/' . $nomeImagem);

@@ -21,14 +21,16 @@
                 $filmePersistence = new FilmePersistence();
                 switch ($_GET['acao']) {
                     case 'salvar':
-                        //TESTE PARA VERIFICAR SE IRÁ SALVAR UM NOVO REGISTRO OU ATUALIZAR UM REGISTRO EXISTENTE
 
+                        //TESTE PARA VERIFICAR SE IRÁ SALVAR UM NOVO REGISTRO OU ATUALIZAR UM REGISTRO EXISTENTE
                         $filme = new Filme();
                         if($_GET['id'] != ''){
                             echo 'ATUALIZAR REGISTRO';
                             $filme->validarDados();
                             $filmePersistence->atualizar($_GET['id'], $filme);
                             session_start();
+
+                            //SALVA ID DO FILME A SER ATUALIZADO NA VARIAVEL DE SESSAO
                             $_SESSION['id'] = $_GET['id'];
                             header('Location: cadastro-capa?id='. $_SESSION['id']);
                         }else{
@@ -36,19 +38,21 @@
                                 require __DIR__ . '/../View/cadastro.php';
                             }
                             $id = $filmePersistence->salvar($filme);
-                            session_start();                       
+                            session_start();
+                            
+                            //SALVA ID DO FILME A SER ATUALIZADO NA VARIAVEL DE SESSAO
                             $_SESSION['id'] = $id;
                             header('Location: cadastro-capa?id='. $id);
                         }
                         break;
                     case 'atualizar':
+
+                        //SE A AÇÃO FOR ATUALIZAR, RENDERIZA A VIEW CADASTRO COM OS DADOS DO FILME ESCOLHIDO
                         require __DIR__ . '/../View/cadastro.php';
                         break;
-                    case 'atualizarBanco':
-                        echo 'ATUALIZAR BANCO';
-                        break;
                     case 'excluir':
-                        print_r($_GET);
+
+                        //SE O INDICE 'ID' ESTIVER SETADO, EXCLUI O FILME ESCOLHIDO E RENDERIZA A VIEW PRINCIPAL NOVAMENTE
                         if(isset($_GET['id'])){
                             $filmePersistence->excluir($_GET['id']);
                         }
@@ -56,7 +60,6 @@
                         break;
                     
                     default:
-                        # code...
                         break;
                 }
 

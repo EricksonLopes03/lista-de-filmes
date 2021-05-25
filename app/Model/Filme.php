@@ -13,31 +13,31 @@
 
         /**
          * Títuo do filme
-         * @var string
+         * @var String
          */
         private $titulo;
 
         /**
          * Descrição do filme
-         * @var string
+         * @var String
          */
         private $descricao;
 
         /**
          * Gênero do filme
-         * @var string
+         * @var String
          */
         private $genero;
 
         /**
          * Ano de lançamento do filme
-         * @var int
+         * @var String
          */
         private $ano;
 
         /**
          * Nome gerado para a imagem de capa do filme
-         * @var string
+         * @var String
          */
         private $capa;
 
@@ -50,6 +50,10 @@
             $this->$name = $value;
         }
 
+        /**
+         * Método responsável por validar os dados do formulário
+         * @return boolean
+         */
         public function validarDados(){
             $filtros = [
                 'titulo' => FILTER_SANITIZE_STRIPPED,

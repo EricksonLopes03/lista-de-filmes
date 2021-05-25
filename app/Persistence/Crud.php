@@ -19,7 +19,7 @@
 
             /**
              * Método responsável por padronizar cadastro de dados no banco
-             * @param mixed $objeto
+             * @param Object $objeto
              */
             protected function salvar($objeto){
                 
@@ -28,8 +28,8 @@
 
             /**
              * Método responsável por padronizar atualização de dados no banco
-             * @param mixed $id
-             * @param mixed $objeto
+             * @param int       $id
+             * @param Object    $objeto
              */
             protected function atualizar($id, $objeto){
 
@@ -46,7 +46,7 @@
 
             /**
              * Método responsável por padronizar exclusão de dados no banco
-             * @param mixed $id
+             * @param int      $id
              */
             protected function excluir($id){
 
