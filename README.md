@@ -1,6 +1,6 @@
 <h1 align="center"> Filmando - a lista dos seus filmes preferidos! </h1> 
 
-<p align="center">Este projeto foi elaborado como PCE (Projeto de Conclusão de Estudos) durante o onboarding à empresa web.art group e tem como objetivo implementar o controle de cadastro de filmes, séries ou documentários que você queira armazenar. 
+<p align="center">Este projeto foi elaborado como PCE (Projeto de Conclusão de Estudos) durante o onboarding à empresa web.art group e tem como objetivo implementar o controle de cadastro de filmes, séries ou documentários que você queira salvar! 
  </p> 
 
 
